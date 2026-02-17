@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Online Dating Room</title>
+
+<style>
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:#0f172a;
+color:#fff;
+}
+
+/* HEADER */
+header{
+text-align:center;
+padding:18px 10px;
+background:linear-gradient(90deg,#ff007a,#ff4da6);
+}
+header h1{
+margin:0;
+font-size:24px;
+font-weight:bold;
+}
+header p{
+margin:4px 0 0;
+font-size:13px;
+}
+
+.tagline{
+text-align:center;
+padding:10px;
+font-size:14px;
+color:#ffd1ea;
+font-weight:bold;
+}
+
+/* SLIDER */
+.slider{
+display:flex;
+overflow-x:auto;
+scroll-snap-type:x mandatory;
+padding:15px;
+}
+.slider::-webkit-scrollbar{display:none;}
+
+.card{
+flex:0 0 90%;
+margin-right:15px;
+background:#1e293b;
+border-radius:18px;
+scroll-snap-align:center;
+box-shadow:0 0 15px rgba(0,0,0,.6);
+overflow:hidden;
+}
+
+.card img{
+width:100%;
+height:280px;
+object-fit:cover;
+}
+
+.info{
+padding:12px;
+}
+.name{
+font-size:20px;
+font-weight:bold;
+}
+.status{
+color:#00ff88;
+font-size:13px;
+}
+.distance{
+font-size:13px;
+color:#ccc;
+}
+
+/* BUTTONS */
+.buttons{
+display:flex;
+justify-content:space-around;
+padding:12px;
+}
+.btn{
+display:flex;
+align-items:center;
+gap:6px;
+padding:10px 14px;
+border-radius:12px;
+border:none;
+color:#fff;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 0 10px rgba(0,0,0,.5);
+}
+.msg{background:#ff007a;}
+.video{background:#0077ff;}
+.audio{background:#00aa55;}
+
+/* MODAL */
+.modal{
+position:fixed;
+top:0;left:0;
+width:100%;height:100%;
+background:rgba(0,0,0,.85);
+display:none;
+align-items:center;
+justify-content:center;
+}
+.box{
+background:#111827;
+padding:16px;
+border-radius:16px;
+text-align:center;
+width:78%;
+max-width:340px;
+}
+.box img{
+width:100%;
+border-radius:12px;
+margin-bottom:8px;
+}
+.online{
+color:#00”00ff88;
+font-size:13px;
+margin-bottom:6px;
+}
+
+.register{
+margin-top:10px;
+background:linear-gradient(90deg,#ff007a,#ff4da6);
+padding:12px;
+border-radius:12px;
+color:#fff;
+font-weight:bold;
+display:block;
+text-decoration:none;
+animation:pulse 1.4s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.07);}
+100%{transform:scale(1);}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Free Online Dating Room</h1>
+<p>100% Free & Secure 🔐</p>
+</header>
+
+<div class="tagline">
+These Profiles Are Located Near Your Location And Online
+</div>
+
+<div class="slider" id="profiles"></div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+<div class="box">
+<img id="mimg">
+<h3 id="mname"></h3>
+<div class="online">● Online & Active Now</div>
+<p id="mdis"></p>
+
+<p>If you want to join the Free Dating Room<br>
+You Need To Register For Free Now</p>
+
+<a href="https://safeoffers.pro/a/RozKiOzWhOXLZ" class="register">Register</a>
+</div>
+</div>
+
+<script>
+const data=[
+{name:"Anna Smith",img:"https://blogger.googleusercontent.com/img/a/AVvXsEgDO4aopRzkb_klmZQ6T2VIz7epDQ_jizaxp9gX79s5QzGZnMmLl5QoZkbrkIrE9T0xrADSJpc61mqGb0Dx5vzfUaeaQ9CsW3pNWHO6vYq1sbZgJVx6Wtw_QkH8aj4f6uzd9UZc6Tfu8wlZTruRKN5f2yOWmbbC8hECfxdFB5XCaHXSaSlal5-cCoZ3PJM",dist:5},
+{name:"Maria Lopez",img:"https://blogger.googleusercontent.com/img/a/AVvXsEg1Ngw-WEiXdkjhianCJ2YGE_igqjXp29eiKA_6mxNgBfvLja5VyLc_0Yjb4cawxV2pGgcOlggiCuNYwBujVnkTxqp4P6gAU9EeY2CPVZ1pA_e0nrCdEzgJ1VvRHpi8s7J4yz7KDt16uNC-KOaEBUBnWldbzP95N3MovfGo7Pl65PzHKMVD_8Ot3r6PhTE",dist:12},
+{name:"Sofia Brown",img:"https://blogger.googleusercontent.com/img/a/AVvXsEjtvZGYs-wbiWYZUfsaPIxlG8fTYIrI-EnnM-fFjCONDMtq40tjzUgllZoPjpH8nE2F4c4zt8ICNtiI7cI9ak_jPPv1zXSliKRWedgVmtjH86snuidPTu16u92iazaveV2miMQyXmK6WcjNHNuFwtLgsLg_kpotJygj0DbxOEmxSts2KQhIUfIGeXvUyE4",dist:3},
+{name:"Emma Wilson",img:"https://blogger.googleusercontent.com/img/a/AVvXsEj3LX7JjMZ2bYXctaLdCCmzgbRJdzq2udsaIvLt5JSrFRRS6YD0cMbdtavN-AUFd7AQ1xk0jlmuao12NPVsbCXwAiG_LLa3cvD48inz4hvxqatmIbRotHsDU_uQQRGKrS5bbCNpstIT0_tYMbEzuzOqrM5LHkVucJWDXaRkEm-oCm1s1fTmBjZ41gIyuog",dist:8},
+{name:"Olivia Taylor",img:"https://blogger.googleusercontent.com/img/a/AVvXsEgbtOenK7cXvKxUS22oAP5GVNRfoNCTerQT3gGhXszUFsmkOwjlRr00yrN4tE-SJ2kpQGO70rfqMHWVkAv_RTeBoCXwfJkSLdS8EgP0ZsNIYyJx_1KzCphtx_1FIRswP-TLwpU0BPgAK3iHCZmk9x3hvSbfFjbr9TDgO7k6cCv1rYzdOHu0p4sEazc6Pno",dist:15},
+{name:"Mia Anderson",img:"https://blogger.googleusercontent.com/img/a/AVvXsEjt-OEr6ZWiwZB8kR-8xpzcouwHUvjS5NVYKuLSWqb-5GhLfE7DfTx2WmjVc6h_v8Wz3Su7XMYRSIqNnGBz9d8SnuWrUT0Dbmn4gFbvbCxEkeqIl0Cm22dlYld5wF7OAJQHU3fRLKCoeyKtFtogNhAWSCljXizrlnPoBKc7wJQBlN25TE8Yp9tksmJ7w_U",dist:6},
+{name:"Ava Thomas",img:"https://blogger.googleusercontent.com/img/a/AVvXsEiSg-dNwNmfhZLrVfOv3v_sNmC5lMxybsb0eLnnVGI35g-9itjUCodYBhuM7ouv5_Q3nCs76u05fvG1t_HXRHDNEG-YVEHFqgkpk0uy3AdbRRqg_fmX1vj3jFiN9Klodz13gdZM8AA7maXnAz2pCNgbrME8zePHKjpFzCBOScZCVGbM56OmrMC7kkne3QY",dist:19},
+{name:"Isabella Lee",img:"https://blogger.googleusercontent.com/img/a/AVvXsEjJtPcuqG7bIFfA5E4fTYExFYItGKrIESwFajz8lstAn4NKB9icJMt4yxfs8hgBsVru-bWjJtfwlxgyhT-gaQLlKp6g0anFdy1ajPvT00CmljOnH1nXm_hKkRAyXqgtVboBo4IerN0jolp6gE6vLRbpnmiOas_P94rovCSErbw5LQ1upQnF-3sSCuETFHQ",dist:2},
+{name:"Charlotte Hall",img:"https://blogger.googleusercontent.com/img/a/AVvXsEgudqL6mKv5fRNnDinCN3MpC8TqI-xxRkQjwkXcQxVtRSOhaFfVKiQVGQDbl7YtYfcWVUBd-DRjn8V2_bZ2v5r5OIyRMnR3rRnE-K2-9lLK0twT1S0qXOgue0hZ-OKu1Z6kYsBny6YVBh84DrmT5CJv6ch88xYga7jf1wYsuBt08u3LvP2fqyI4By0kIG0",dist:11},
+{name:"Amelia King",img:"https://blogger.googleusercontent.com/img/a/AVvXsEh_rPuwX0-SOI9L472P5HUb_uEFRN8IDWOKzKmtVlQsz3u8E6Q4ZPe94y0N4_pDxIB2m17VuvIpoOqW2ybgL1r3A6GcL0hjcrutb_AEi1BxRoMKgtJVDC5dE0Z8kIrcwqvkD3pAuYl4q-Ggfe-N1mDzETYtXD4X-eQsNfAITzzhp8kd5eixM8sZcQIOwUk",dist:7}
+];
+
+const container=document.getElementById("profiles");
+
+data.forEach(p=>{
+let card=document.createElement("div");
+card.className="card";
+
+card.innerHTML=`
+<img src="${p.img}">
+<div class="info">
+<div class="name">${p.name}</div>
+<div class="status">● Active Now</div>
+<div class="distance">${p.dist} km away</div>
+</div>
+
+<div class="buttons">
+<button class="btn msg">💬 Message</button>
+<button class="btn video">📹 Video</button>
+<button class="btn audio">🎧 Audio</button>
+</div>
+`;
+
+card.onclick=()=>openModal(p);
+container.appendChild(card);
+});
+
+function openModal(p){
+document.getElementById("modal").style.display="flex";
+document.getElementById("mimg").src=p.img;
+document.getElementById("mname").innerText=p.name;
+document.getElementById("mdis").innerText=p.dist+" km away";
+}
+
+document.getElementById("modal").onclick=()=>{
+document.getElementById("modal").style.display="none";
+}
+</script>
+
+</body>
+</html>
