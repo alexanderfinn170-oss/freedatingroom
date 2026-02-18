@@ -19,15 +19,8 @@ text-align:center;
 padding:18px 10px;
 background:linear-gradient(90deg,#ff007a,#ff4da6);
 }
-header h1{
-margin:0;
-font-size:24px;
-font-weight:bold;
-}
-header p{
-margin:4px 0 0;
-font-size:13px;
-}
+header h1{margin:0;font-size:24px;}
+header p{margin:4px 0 0;font-size:13px;}
 
 .tagline{
 text-align:center;
@@ -58,27 +51,15 @@ overflow:hidden;
 
 .card img{
 width:100%;
-height:280px;
+height:260px;
 object-fit:cover;
 }
 
-.info{
-padding:12px;
-}
-.name{
-font-size:20px;
-font-weight:bold;
-}
-.status{
-color:#00ff88;
-font-size:13px;
-}
-.distance{
-font-size:13px;
-color:#ccc;
-}
+.info{padding:12px;}
+.name{font-size:20px;font-weight:bold;}
+.status{color:#00ff88;font-size:13px;}
+.distance{font-size:13px;color:#ccc;}
 
-/* BUTTONS */
 .buttons{
 display:flex;
 justify-content:space-around;
@@ -94,39 +75,52 @@ border:none;
 color:#fff;
 font-weight:bold;
 cursor:pointer;
-box-shadow:0 0 10px rgba(0,0,0,.5);
 }
 .msg{background:#ff007a;}
 .video{background:#0077ff;}
 .audio{background:#00aa55;}
 
-/* MODAL */
+/* MODAL FIXED SIZE */
 .modal{
 position:fixed;
 top:0;left:0;
 width:100%;height:100%;
-background:rgba(0,0,0,.85);
+background:rgba(0,0,0,.9);
 display:none;
 align-items:center;
 justify-content:center;
 }
+
 .box{
 background:#111827;
-padding:16px;
+padding:14px;
 border-radius:16px;
 text-align:center;
-width:78%;
-max-width:340px;
+width:82%;
+max-width:320px;
+animation:fade .2s ease;
 }
+
 .box img{
 width:100%;
+height:180px;
+object-fit:cover;
 border-radius:12px;
 margin-bottom:8px;
 }
-.online{
-color:#00”00ff88;
-font-size:13px;
+
+.online{color:#00ff88;font-size:13px;}
+
+.back{
+text-align:left;
 margin-bottom:6px;
+}
+.back button{
+background:none;
+border:none;
+color:#ff4da6;
+font-size:15px;
+cursor:pointer;
 }
 
 .register{
@@ -145,6 +139,11 @@ animation:pulse 1.4s infinite;
 0%{transform:scale(1);}
 50%{transform:scale(1.07);}
 100%{transform:scale(1);}
+}
+
+@keyframes fade{
+from{transform:scale(.8);opacity:0;}
+to{transform:scale(1);opacity:1;}
 }
 </style>
 </head>
@@ -165,6 +164,11 @@ These Profiles Are Located Near Your Location And Online
 <!-- MODAL -->
 <div class="modal" id="modal">
 <div class="box">
+
+<div class="back">
+<button onclick="closeModal()">← Back</button>
+</div>
+
 <img id="mimg">
 <h3 id="mname"></h3>
 <div class="online">● Online & Active Now</div>
@@ -174,21 +178,22 @@ These Profiles Are Located Near Your Location And Online
 You Need To Register For Free Now</p>
 
 <a href="https://safeoffers.pro/a/RozKiOzWhOXLZ" class="register">Register</a>
+
 </div>
 </div>
 
 <script>
 const data=[
-{name:"Anna Smith",img:"https://blogger.googleusercontent.com/img/a/AVvXsEgDO4aopRzkb_klmZQ6T2VIz7epDQ_jizaxp9gX79s5QzGZnMmLl5QoZkbrkIrE9T0xrADSJpc61mqGb0Dx5vzfUaeaQ9CsW3pNWHO6vYq1sbZgJVx6Wtw_QkH8aj4f6uzd9UZc6Tfu8wlZTruRKN5f2yOWmbbC8hECfxdFB5XCaHXSaSlal5-cCoZ3PJM",dist:5},
-{name:"Maria Lopez",img:"https://blogger.googleusercontent.com/img/a/AVvXsEg1Ngw-WEiXdkjhianCJ2YGE_igqjXp29eiKA_6mxNgBfvLja5VyLc_0Yjb4cawxV2pGgcOlggiCuNYwBujVnkTxqp4P6gAU9EeY2CPVZ1pA_e0nrCdEzgJ1VvRHpi8s7J4yz7KDt16uNC-KOaEBUBnWldbzP95N3MovfGo7Pl65PzHKMVD_8Ot3r6PhTE",dist:12},
-{name:"Sofia Brown",img:"https://blogger.googleusercontent.com/img/a/AVvXsEjtvZGYs-wbiWYZUfsaPIxlG8fTYIrI-EnnM-fFjCONDMtq40tjzUgllZoPjpH8nE2F4c4zt8ICNtiI7cI9ak_jPPv1zXSliKRWedgVmtjH86snuidPTu16u92iazaveV2miMQyXmK6WcjNHNuFwtLgsLg_kpotJygj0DbxOEmxSts2KQhIUfIGeXvUyE4",dist:3},
-{name:"Emma Wilson",img:"https://blogger.googleusercontent.com/img/a/AVvXsEj3LX7JjMZ2bYXctaLdCCmzgbRJdzq2udsaIvLt5JSrFRRS6YD0cMbdtavN-AUFd7AQ1xk0jlmuao12NPVsbCXwAiG_LLa3cvD48inz4hvxqatmIbRotHsDU_uQQRGKrS5bbCNpstIT0_tYMbEzuzOqrM5LHkVucJWDXaRkEm-oCm1s1fTmBjZ41gIyuog",dist:8},
-{name:"Olivia Taylor",img:"https://blogger.googleusercontent.com/img/a/AVvXsEgbtOenK7cXvKxUS22oAP5GVNRfoNCTerQT3gGhXszUFsmkOwjlRr00yrN4tE-SJ2kpQGO70rfqMHWVkAv_RTeBoCXwfJkSLdS8EgP0ZsNIYyJx_1KzCphtx_1FIRswP-TLwpU0BPgAK3iHCZmk9x3hvSbfFjbr9TDgO7k6cCv1rYzdOHu0p4sEazc6Pno",dist:15},
-{name:"Mia Anderson",img:"https://blogger.googleusercontent.com/img/a/AVvXsEjt-OEr6ZWiwZB8kR-8xpzcouwHUvjS5NVYKuLSWqb-5GhLfE7DfTx2WmjVc6h_v8Wz3Su7XMYRSIqNnGBz9d8SnuWrUT0Dbmn4gFbvbCxEkeqIl0Cm22dlYld5wF7OAJQHU3fRLKCoeyKtFtogNhAWSCljXizrlnPoBKc7wJQBlN25TE8Yp9tksmJ7w_U",dist:6},
-{name:"Ava Thomas",img:"https://blogger.googleusercontent.com/img/a/AVvXsEiSg-dNwNmfhZLrVfOv3v_sNmC5lMxybsb0eLnnVGI35g-9itjUCodYBhuM7ouv5_Q3nCs76u05fvG1t_HXRHDNEG-YVEHFqgkpk0uy3AdbRRqg_fmX1vj3jFiN9Klodz13gdZM8AA7maXnAz2pCNgbrME8zePHKjpFzCBOScZCVGbM56OmrMC7kkne3QY",dist:19},
-{name:"Isabella Lee",img:"https://blogger.googleusercontent.com/img/a/AVvXsEjJtPcuqG7bIFfA5E4fTYExFYItGKrIESwFajz8lstAn4NKB9icJMt4yxfs8hgBsVru-bWjJtfwlxgyhT-gaQLlKp6g0anFdy1ajPvT00CmljOnH1nXm_hKkRAyXqgtVboBo4IerN0jolp6gE6vLRbpnmiOas_P94rovCSErbw5LQ1upQnF-3sSCuETFHQ",dist:2},
-{name:"Charlotte Hall",img:"https://blogger.googleusercontent.com/img/a/AVvXsEgudqL6mKv5fRNnDinCN3MpC8TqI-xxRkQjwkXcQxVtRSOhaFfVKiQVGQDbl7YtYfcWVUBd-DRjn8V2_bZ2v5r5OIyRMnR3rRnE-K2-9lLK0twT1S0qXOgue0hZ-OKu1Z6kYsBny6YVBh84DrmT5CJv6ch88xYga7jf1wYsuBt08u3LvP2fqyI4By0kIG0",dist:11},
-{name:"Amelia King",img:"https://blogger.googleusercontent.com/img/a/AVvXsEh_rPuwX0-SOI9L472P5HUb_uEFRN8IDWOKzKmtVlQsz3u8E6Q4ZPe94y0N4_pDxIB2m17VuvIpoOqW2ybgL1r3A6GcL0hjcrutb_AEi1BxRoMKgtJVDC5dE0Z8kIrcwqvkD3pAuYl4q-Ggfe-N1mDzETYtXD4X-eQsNfAITzzhp8kd5eixM8sZcQIOwUk",dist:7}
+{name:"Anna Smith",img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbtjYBpIfapQ3zB1qhhK4fIwj3eqW3DAFl3tYw5Q_qwTy1Q52CFiuWfyXkKM7fLMRpKdCC5_Bk6xgawT_oyrb4mAm6FVNMyy4fzCU7RivWZ0VLXRSvQSIr-_gYCRuHV6KF3OIXMGr9WLWFBx5ZC297SaLQoKmo4G4lkd3HzB7In1XQjnohMTXELQ8nSmE/s1110/beautiful-girl-sits-chair_8353-5635.jpg",dist:5},
+{name:"Maria Lopez",img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvYeDeyIpVxokfME4F5_GUqtV2QnVkbYYOmweIddgp1VKOcjsdFdaDED7JLXmVzfy2yqaoPEhwOvRCI5gMNBsBIu6QOkBXs509fnQywEbjmzl72XCvadzJavQ9b7k0VDVvsX8ZD1SoWwOjarf99iEywaT1W9oZsORSPWxO3BA6g_tacbCz4BHwd9oTnEI/s1109/young-woman-model-posing-with-checkered-plaid-near-christmas-balls_114579-66821.jpg",dist:12},
+{name:"Sofia Brown",img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwFVcdu-zn7kBpzD3Pr-EcRx2XQHf6LD9Skkjkqd_ouyDFgzeRsBZrzAloG2ht5GV1BqEvrIK2qMAh_ZG7xAyF7GWcAnk_9dJHc3JfkMBV9R9ron7b7TTjd9kbDKgD9V37X6t32eAw_U5EldiL9FtQZ1iFrYK7uTy2WxUE3vNXHdEopnsMpfxTqLcBODs/s678/images%20-%202026-02-18T041529.493.jpeg",dist:3},
+{name:"Emma Wilson",img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYhwKEPpCcN5MT7oz2M5yddDddOBwLea5y9ksamDHOOAugq1iFA9HvIZibDnfpINjdnC93pgVDkj-kw5Ldx6fVPiPjrbIxWWi52LVXcF514VW6TdkZFaPsF9aWk1rMY0MYxMdj-cMoP3h-ENtGlazSCvTU4PeAcWlDFRzsbu1mJJjnxCZNO3ObDuwCrUU/s626/images%20-%202026-02-18T041621.537.jpeg",dist:8},
+{name:"Olivia Taylor",img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBD3au8nFR7CyAdSNnWODpHrks-oXM3ZId97NH6SNOQsQkj0jxDltcnJQeIWEjnJw6XJiRYYf_D4gSebUqdqsm0ukrMKnG19oYRekaup1hZsAnW5SB2c4Tqlm6-7zOzwp-bbbY82RWOxI6Km2lvP-Cub_BDK4PzK6fN99WRmee_AvgiUBflqI2ITtsg1U/s626/images%20-%202026-02-18T041519.239.jpeg",dist:15},
+{name:"Mia Anderson",img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKZKcZUddv0P6TdJM1Nd0iQP0d0x24EyD33BNvYihTk0pwgOFrp5aRAzoqNGiu1OE-LmEAYDzOHew4vnPi1F_p8MB6M9WT_3GFDUSxujXVd_S0gbS33vqTw8xtAmnena6-Lvgfm1yp6Aq7d1DH7E7nj66nuH_FslfgE6ia9G5Gaekyvi_QC0R0EZJmLHM/s1046/woman-with-long-red-hair-holding-her-hands-together_1124509-9.jpg",dist:6},
+{name:"Ava Thomas",img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiLS-KmdCQoVZOcIT4dZukjPd2PP_z_hal8cg31n2_zPNDNKCc5d0bPpw5GRrk509BxsykJSkhDxNSYsR36ES-Fz0rF4a5B8yoAGH0HJ4lRijfqAGgPtlHXyd84B_cSP3LFyL-4zynqyw9P3fUKgPDVa47FBOPoSsKEANc2jJN6dNsEW1E4KJlBdlOLlhk/s626/fashion-portrait-beautiful-blonde-model_1328-2210.jpg",dist:19},
+{name:"Isabella Lee",img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEigSQQow8SghmtO8-bZt4qV2Jl9k3auDx6bHaVxRNQSm7vQJ66tbmiDRD1tRcHC6_bp2eupFtJm6t1zyvNJkCw5NAblmwyrzyMNs2Ozei1GcSrFG4G8zL-v-mzhHzS7jBwyQlq7BvIkSsaojsoeGzD4D29FNsSsaUa44Sj_IVpXZ8hiN_8uk_ZC1NrKnoQ/s626/beautiful-brunette-girl-with-makeup-fashion-beauty-portrait_792372-931.jpg",dist:2},
+{name:"Charlotte Hall",img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwp2oOUKUfN7ZszTubAIqZZBOMnFyhIZYn7luSaz991D2Q6Rjxgrt04HVQoCyKxlZz7P5FqJYOtmnoEp9b_m-7VsLsZXIrjEdMsmghyNqL8IKUoCBqxczia1cd1pHk28ANg-o9RXoJ-H-YnZ58JTCTKE6fEJc4CDhxrwevCqG5McrZqZ1UDxA4t2avESA/s539/images%20-%202026-02-18T041538.420.jpeg",dist:11},
+{name:"Amelia King",img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi5I4wg8SMrHVdBwwOy8iCpUUPNur6HOs8tnpIJINwJ7_aV1fZfNM-njZeVtbH7UtqIjBZHeg0b6nlHnGbc-aYoj2SRPOkBhSdO_FVPE1_POK-TodtsgPXc-dYdoG1MvdljsxPzfq-ZUNFnwVObLlRTApNtxMfqvz-WXSpaarDmOFz0kne6MXLWtOQSmzE/s626/images%20-%202026-02-18T041649.083.jpeg",dist:7}
 ];
 
 const container=document.getElementById("profiles");
@@ -223,9 +228,19 @@ document.getElementById("mname").innerText=p.name;
 document.getElementById("mdis").innerText=p.dist+" km away";
 }
 
-document.getElementById("modal").onclick=()=>{
+function closeModal(){
 document.getElementById("modal").style.display="none";
 }
+</script>
+
+<!-- ✅ Monetag script added -->
+<script>
+self.options = {
+    "domain": "5gvci.com",
+    "zoneId": 10626148
+}
+self.lary = ""
+importScripts('https://5gvci.com/act/files/service-worker.min.js?r=sw')
 </script>
 
 </body>
