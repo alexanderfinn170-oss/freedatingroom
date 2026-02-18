@@ -5,13 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Free Online Dating Room</title>
 
-<!-- ✅ Head Ad Network Script -->
-<script>
-(function(s){
-s.dataset.zone='10626318',
-s.src='https://al5sm.com/tag.min.js'
-})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))
-</script>
+<!-- ✅ Monetag Ads Scripts (Head) -->
+<script>(function(s){s.dataset.zone='10626393',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+<script>(function(s){s.dataset.zone='10626398',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+<script>(function(s){s.dataset.zone='10626402',s.src='https://gizokraijaw.net/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
 
 <style>
 body{
@@ -29,11 +26,6 @@ background:linear-gradient(90deg,#ff007a,#ff4da6);
 }
 header h1{margin:0;font-size:24px;}
 header p{margin:4px 0 0;font-size:13px;}
-
-.banner{
-text-align:center;
-margin:10px 0;
-}
 
 .tagline{
 text-align:center;
@@ -124,6 +116,18 @@ margin-bottom:8px;
 
 .online{color:#00ff88;font-size:13px;}
 
+.back{
+text-align:left;
+margin-bottom:6px;
+}
+.back button{
+background:none;
+border:none;
+color:#ff4da6;
+font-size:15px;
+cursor:pointer;
+}
+
 .register{
 margin-top:10px;
 background:linear-gradient(90deg,#ff007a,#ff4da6);
@@ -146,6 +150,14 @@ animation:pulse 1.4s infinite;
 from{transform:scale(.8);opacity:0;}
 to{transform:scale(1);opacity:1;}
 }
+
+/* Adsterra Banner */
+#adsterra-banner{
+width:320px;
+height:50px;
+margin:12px auto;
+display:block;
+}
 </style>
 </head>
 
@@ -156,28 +168,32 @@ to{transform:scale(1);opacity:1;}
 <p>100% Free & Secure 🔐</p>
 </header>
 
-<!-- ✅ Adsterra Banner (High Visibility Position) -->
-<div class="banner">
-<script>
-atOptions = {
-'key' : 'd1747569c70478702c7dad6857b04886',
-'format' : 'iframe',
-'height' : 50,
-'width' : 320,
-'params' : {}
-};
-</script>
-<script src="https://www.highperformanceformat.com/d1747569c70478702c7dad6857b04886/invoke.js"></script>
-</div>
-
 <div class="tagline">
 These Profiles Are Located Near Your Location And Online
 </div>
 
+<!-- Adsterra Banner Top -->
+<div id="adsterra-banner">
+<script>
+  atOptions = {
+    'key' : 'd1747569c70478702c7dad6857b04886',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/d1747569c70478702c7dad6857b04886/invoke.js"></script>
+</div>
+
 <div class="slider" id="profiles"></div>
 
+<!-- MODAL -->
 <div class="modal" id="modal">
 <div class="box">
+<div class="back">
+<button onclick="closeModal()">← Back</button>
+</div>
 <img id="mimg">
 <h3 id="mname"></h3>
 <div class="online">● Online & Active Now</div>
@@ -193,7 +209,9 @@ You Need To Register For Free Now</p>
 
 <script>
 const data=[
-{name:"Anna Smith",img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbtjYBpIfapQ3zB1qhhK4fIwj3eqW3DAFl3tYw5Q_qwTy1Q52CFiuWfyXkKM7fLMRpKdCC5_Bk6xgawT_oyrb4mAm6FVNMyy4fzCU7RivWZ0VLXRSvQSIr-_gYCRuHV6KF3OIXMGr9WLWFBx5ZC297SaLQoKmo4G4lkd3HzB7In1XQjnohMTXELQ8nSmE/s1110/beautiful-girl-sits-chair_8353-5635.jpg",dist:5}
+{name:"Anna Smith",img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbtjYBpIfapQ3zB1qhhK4fIwj3eqW3DAFl3tYw5Q_qwTy1Q52CFiuWfyXkKM7fLMRpKdCC5_Bk6xgawT_oyrb4mAm6FVNMyy4fzCU7RivWZ0VLXRSvQSIr-_gYCRuHV6KF3OIXMGr9WLWFBx5ZC297SaLQoKmo4G4lkd3HzB7In1XQjnohMTXELQ8nSmE/s1110/beautiful-girl-sits-chair_8353-5635.jpg",dist:5},
+{name:"Maria Lopez",img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgvYeDeyIpVxokfME4F5_GUqtV2QnVkbYYOmweIddgp1VKOcjsdFdaDED7JLXmVzfy2yqaoPEhwOvRCI5gMNBsBIu6QOkBXs509fnQywEbjmzl72XCvadzJavQ9b7k0VDVvsX8ZD1SoWwOjarf99iEywaT1W9oZsORSPWxO3BA6g_tacbCz4BHwd9oTnEI/s1109/young-woman-model-posing-with-checkered-plaid-near-christmas-balls_114579-66821.jpg",dist:12},
+{name:"Sofia Brown",img:"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjwFVcdu-zn7kBpzD3Pr-EcRx2XQHf6LD9Skkjkqd_ouyDFgzeRsBZrzAloG2ht5GV1BqEvrIK2qMAh_ZG7xAyF7GWcAnk_9dJHc3JfkMBV9R9ron7b7TTjd9kbDKgD9V37X6t32eAw_U5EldiL9FtQZ1iFrYK7uTy2WxUE3vNXHdEopnsMpfxTqLcBODs/s678/images%20-%202026-02-18T041529.493.jpeg",dist:3}
 ];
 
 const container=document.getElementById("profiles");
@@ -201,6 +219,7 @@ const container=document.getElementById("profiles");
 data.forEach(p=>{
 let card=document.createElement("div");
 card.className="card";
+
 card.innerHTML=`
 <img src="${p.img}">
 <div class="info">
@@ -208,23 +227,28 @@ card.innerHTML=`
 <div class="status">● Active Now</div>
 <div class="distance">${p.dist} km away</div>
 </div>
+
 <div class="buttons">
 <button class="btn msg">💬 Message</button>
 <button class="btn video">📹 Video</button>
 <button class="btn audio">🎧 Audio</button>
-</div>`;
+</div>
+`;
+
+card.onclick=()=>openModal(p);
 container.appendChild(card);
 });
-</script>
 
-<!-- ✅ Monetag Service Worker (Body End / Root) -->
-<script>
-self.options = {
-"domain": "3nbf4.com",
-"zoneId": 10626221
+function openModal(p){
+document.getElementById("modal").style.display="flex";
+document.getElementById("mimg").src=p.img;
+document.getElementById("mname").innerText=p.name;
+document.getElementById("mdis").innerText=p.dist+" km away";
 }
-self.lary = ""
-importScripts('https://3nbf4.com/act/files/service-worker.min.js?r=sw')
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
 </script>
 
 </body>
