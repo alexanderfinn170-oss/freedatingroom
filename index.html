@@ -20,7 +20,7 @@ fbq('track', 'PageView');
 </script>
 
 <style>
-/* BASE */
+/* BASE STYLES */
 html{scroll-behavior:smooth;}
 body{
 margin:0;
@@ -221,9 +221,43 @@ background:#111827;
 color:#94a3b8;
 margin-top:50px;
 }
+
+/* FLOATING MESSENGER BUTTONS */
+.float-buttons{
+position:fixed;
+bottom:25px;
+right:25px;
+display:flex;
+flex-direction:column;
+gap:15px;
+z-index:999;
+}
+.float-buttons a{
+width:50px;
+height:50px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#25d366; /* default green for WhatsApp */
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+transition:transform 0.3s ease;
+}
+.float-buttons a.messenger{
+background:#0084ff; /* Messenger blue */
+}
+.float-buttons a img{
+width:24px;
+height:24px;
+}
+
+/* Hover animation */
+.float-buttons a:hover{
+transform:scale(1.2) rotate(-10deg);
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
 </style>
 </head>
-
 <body>
 
 <!-- LOGO -->
@@ -298,6 +332,16 @@ margin-top:50px;
 <!-- FOOTER -->
 <div class="footer">
 © 2026 কোম্পানির নাম | All Rights Reserved
+</div>
+
+<!-- FLOATING WHATSAPP & MESSENGER BUTTONS -->
+<div class="float-buttons">
+<a href="YOUR_WHATSAPP_LINK_HERE" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+<a href="YOUR_MESSENGER_LINK_HERE" class="messenger" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/83/Facebook_Messenger_logo_2020.svg" alt="Messenger">
+</a>
 </div>
 
 </body>
