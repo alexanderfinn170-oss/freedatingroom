@@ -1,175 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exclusive Profile</title>
-<style>
-/* Reset */
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
-
-/* Fullscreen background image */
-body{
-  background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhGafVolayRPmQ2XZT_X8KKZ8ohX4N6AGEdCy_EZoOaxKuHTMgm3NzFUugmZGTK68KT2ZjxKc-4CASuhIgvH-rXHl6mgkTN3yTsGQ-rFxF5NYsybHk00FT0_ItoTARINkGBxO7pSG7qQOww6HRFG-8o7WsS_Px1I0CLXJ8i11UYT4iL3AvV47epshZ8SxA/s2937/%F0%9D%97%A7%F0%9D%97%B2%F0%9D%97%B9%F0%9D%97%B2%F0%9D%97%B4%F0%9D%97%BF%F0%9D%97%AE%F0%9D%97%BA%20@%F0%9D%97%A0%F0%9D%97%BC%F0%9D%97%B1%F0%9D%97%B2%F0%9D%97%B9%F0%9D%97%A6%F0%9D%97%AE%F0%9D%97%B9%F0%9D%97%B2%F0%9D%97%BF%20(12)%20(1).jpg') no-repeat center center fixed;
-  background-size: cover;
-  height: 100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  color:#fff;
-  overflow-x:hidden;
-}
-
-/* Main container */
-.container{
-  background: rgba(0,0,0,0.5);
-  padding:20px;
-  border-radius:15px;
-  max-width: 350px;
-}
-
-/* Headline */
-h1{
-  font-size:22px;
-  margin-bottom:20px;
-}
-
-/* Slider */
-.slider{
-  width:280px;
-  aspect-ratio:4/5;
-  overflow:hidden;
-  border-radius:15px;
-  margin: 0 auto 20px auto;
-  cursor:pointer;
-  position:relative;
-}
-
-.slides{
-  display:flex;
-  width:500%;
-  animation: slide 5s infinite;
-}
-
-.slides img{
-  width:100%;
-  object-fit:cover;
-}
-
-@keyframes slide{
-  0%{margin-left:0%;}
-  20%{margin-left:0%;}
-  25%{margin-left:-100%;}
-  45%{margin-left:-100%;}
-  50%{margin-left:-200%;}
-  70%{margin-left:-200%;}
-  75%{margin-left:-300%;}
-  95%{margin-left:-300%;}
-  100%{margin-left:-400%;}
-}
-
-/* Animated main button */
-.main-btn{
-  padding:15px 30px;
-  font-size:18px;
-  border:none;
-  border-radius:50px;
-  cursor:pointer;
-  color:#fff;
-  animation: colorChange 3s infinite,float 2s ease-in-out infinite;
-  transition:0.3s;
-}
-
-@keyframes colorChange{
-  0%{background:#ff0066;}
-  25%{background:#ff6600;}
-  50%{background:#00cc66;}
-  75%{background:#0066ff;}
-  100%{background:#ff0066;}
-}
-
-@keyframes float{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-5px);}
-  100%{transform:translateY(0);}
-}
-
-/* Modal */
-.modal{
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.9);
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
-}
-
-.modal-content{
-  background:#111;
-  padding:25px;
-  border-radius:15px;
-  max-width:350px;
-  color:#fff;
-}
-
-/* Signup button inside modal */
-.signup-btn{
-  margin-top:20px;
-  padding:15px 30px;
-  border:none;
-  border-radius:40px;
-  font-size:18px;
-  cursor:pointer;
-  background:linear-gradient(45deg,#ff0066,#ffcc00);
-  color:#fff;
-  animation: float 2s infinite;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ভেষজ স্বাস্থ্য সমাধান – অর্ডার করুন আজই!</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #fafafa; }
+        .container { width: 100%; max-width: 680px; margin: auto; padding: 20px; }
+        header { text-align: center; padding: 20px; }
+        h1 { color: #222; font-size: 28px; }
+        .hero { background: #fff; padding: 20px; margin: 15px 0; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1); }
+        .hero img { max-width: 100%; border-radius: 8px; }
+        .cta-btn { display: block; width: 100%; background: #e74c3c; color: #fff; text-align: center; padding: 15px; text-decoration: none; border-radius: 6px; font-size: 18px; margin-top: 15px; }
+        .features { margin-top: 20px; }
+        .features ul { padding-left: 20px; }
+        .features li { margin: 8px 0; font-size: 16px; }
+        form { background: #fff; padding: 18px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.1); margin-top: 20px; }
+        input, select { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 6px; }
+        button { width: 100%; background: #27ae60; color: #fff; padding: 14px; border: none; border-radius: 6px; font-size: 18px; cursor: pointer; }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>১০০% প্রাকৃতিক ভেষজ সমাধান — আজই অর্ডার করুন!</h1>
+        </header>
 
-<div class="container">
-  <h1>You were forced onto this website because this woman is looking for a man.</h1>
-  
-  <div class="slider" onclick="openModal()">
-    <div class="slides">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjEk9-rTnDIbyk37aD36E23IrJKqXgof_sRW3O4X_1lvRLBXaNTGsThLySy2hVJSLpqWZWz6Lr1-6BM2Bm4oH6LrdsEWZ98nSZtmK3H5obFtcDDqSOBWaR-425MniJuwLQrN5aSfW_V-76tgxCYzEA1VRcIiIOY4P-ZcYzJ-cLKy73pvT9-AKATE7yD0-g/s1920/ezgif.com-webp-maker%20(3).webp">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5jbqAkX4OK__x24HzIBA86v91zZWkTr3CBFjVHu_yc-geAsKwDFF31quzuftkaXNrT0-wWuOdGNlv2_kHZTrCe247FZ_fv4oNz5Id4oyje2CMzL52OTo9ExM61i4PWQkuujrnplPgOhd9K_UngpFs3gK90AGmdceVJZMwi0VYQOnj1uJaSosKu5jv9ro/s1920/ezgif.com-webp-maker%20(5).webp">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCnJkZGTsIEoix4xkb6Prmnrgan2-0NIq3Jfp4qG894469B2tQBd3pEDAtO9Y6TLRU5Cefthey2iwGrB2UZ9WBiP7ry80B56GRokRvJE_nDiudrMBv3AMRF1vqwFLKNSDt_fySX4jaoyI5Av5DC3DZ0rolfSzh9equZspq_PIZ3X5HWYPv6gggp_5cYsU/s1920/ezgif.com-webp-maker%20(4).webp">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiKSMAi8iTc0nPvIOU9E9cJ7TVIa2DNJ23p5CZ9TbvWDsylpjUHx-K4iPBZJMtOMgnBWt7qWA8zYgllWq9f9dgK5XeryrA0vVSQNPjWK-msqDZnhQ3k-ef9TXGTb-MJF8KqMa3Imrlu4oRgQEJoaJmpIbqLiVXXTnYQBn4wQMz7Kk9qsU7nBXktxag7n_k/s1920/ezgif.com-webp-maker%20(6).webp">
-      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhimBhmykiJUObYaZJGjPUx0rKUwpCOvf4Zbxme8CCqUWTSQAzFv4QzO0YG5cfzwgrnlK_RjvdQk5EZOPWpuc5oEiosAq_quGlPHpak7WL0Nz_6HW_EDSGY0VfiUjb3a9g5KptuaP969s44VQnE5Pr77WvIr1U4MYdRuFaXtHIMVB8dfDo3QE8PPP5AzjQ/s1920/ezgif.com-webp-maker%20(2).webp">
+        <div class="hero">
+            <img src="https://via.placeholder.com/680x350.png?text=Product+Image" alt="Product Image">
+            <a href="#orderForm" class="cta-btn">এখনই অর্ডার করুন</a>
+        </div>
+
+        <div class="features">
+            <h2>আপনি যা পেতে পারেন:</h2>
+            <ul>
+                <li>পুরুষের শক্তি ও স্থায়িত্ব বৃদ্ধি</li>
+                <li>বীর্যপাত নিয়ন্ত্রণ ও ইরেকশন উন্নয়ন</li>
+                <li>হরমোন ব্যালেন্স ও আত্মবিশ্বাস বৃদ্ধি</li>
+                <li>গোপন ডেলিভারি + ক্যাশ অন ডেলিভারি</li>
+            </ul>
+        </div>
+
+        <form id="orderForm">
+            <h2>অর্ডার ফর্ম</h2>
+            <label>নাম</label>
+            <input type="text" placeholder="আপনার নাম লিখুন" required>
+
+            <label>মোবাইল নম্বর</label>
+            <input type="tel" placeholder="০১XXXXXXXXX" required>
+
+            <label>ঠিকানা</label>
+            <input type="text" placeholder="আপনার ঠিকানা" required>
+
+            <label>পণ্য নির্বাচন</label>
+            <select required>
+                <option value="">-- পণ্য নির্বাচন করুন --</option>
+                <option value="2000">এক মাসের কোর্স - ৳২,০০০</option>
+                <option value="3500">ফুল কোর্স - ৳৩,৫০০</option>
+            </select>
+
+            <button type="submit">অর্ডার সাবমিট করুন</button>
+        </form>
     </div>
-  </div>
-  
-  <button class="main-btn" onclick="openModal()">Continue With Her ➡️</button>
-</div>
-
-<div class="modal" id="modal">
-  <div class="modal-content">
-    <h2>❌ Important ❌</h2>
-    <p>Only enter this profile if you are over 18+ age</p>
-    <br>
-    <h3>❌ Most Important ❌</h3>
-    <p>Please do not publish her information and identity anywhere publicly</p>
-    <br>
-    <p style="color:#00ff66;">🟩 Free Signup To Continue With Her Profile 🟩</p>
-    <a href="https://odnvgk.biisterlngdate.net/?utm_source=da57dc555e50572d&ban=fb&j1=1&s1=103214&s2=2215827" target="_blank">
-      <button class="signup-btn">Signup</button>
-    </a>
-  </div>
-</div>
-
-<script>
-function openModal(){
-  document.getElementById("modal").style.display="flex";
-}
-</script>
-
 </body>
 </html>
