@@ -89,6 +89,7 @@ input, select{
     padding:10px;
     margin:6px 0;
     border:1px solid #ccc;
+    border-radius:5px;
 }
 button{
     width:100%;
@@ -97,6 +98,8 @@ button{
     color:white;
     border:none;
     font-size:16px;
+    border-radius:5px;
+    cursor:pointer;
 }
 .footer{
     background:#111;
@@ -104,6 +107,14 @@ button{
     text-align:center;
     padding:15px;
     font-size:14px;
+}
+.success-message{
+    display:none;
+    background:#d4edda;
+    color:#155724;
+    padding:10px;
+    margin-top:10px;
+    border-radius:5px;
 }
 </style>
 </head>
@@ -118,19 +129,18 @@ button{
 
 <div class="section">
 
-<!-- 🔥 Image Slider Start -->
+<!-- Image Slider -->
 <div class="slider">
     <div class="slide active">
-        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEi3gUSF3az0h2DQw1ldpwCQtm3HIdeKgKUtvI9Pb8XvHsQKynTvP3-qosMhpti3omFVwOO326jnOPTbhjxe0HSreUHfQ_htt5EyFQ206ox--QLyNmCJsTmlnuBHR77-u7a7cdWls9TMZUUg6RVpYlQcaDGtxlLO5GAi8deccyNVX_wCBDhc8Z2KbonPImI" alt="Product Image 1">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiW9r0i43iftL3qgAUVV02k9y5PYG6OLHCcvVJ2ERqpOZP1RfPqkWFmHcDFp2QoCtQRMikMh3kqjPZcribBxdFmUqdDX1VASInZlTRZ95_ST3xQIa-KpPcX76TRbDDX074hKJVCwI2s2756ThecqwRi5_sNir07x6jYA0lRJaQn9HjYIczhJdCAzglQyiw/s350/download.jfif" alt="Product Image 1">
     </div>
     <div class="slide">
-        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjJYeE75gHw4qMs8u6Nan9hPHOgh9cbs18vuXMSjTRRFTpmZQvivnep_PPSCOxjZDtCema7lnFBBBjntd3ylbY-bIKfArbbRtZzQ-7Wa-yU5x-iiFpsIz-PKkphdIhcQzXhQCGsnBtlfwWhV96HOYuREnnaol2OrJfX0LTMVo7oF55ddH8JJNDKAUjn4b8" alt="Product Image 2">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCKGQ-_PqJ7DiBAEVvxt4cWozC0eEx3tyS6iCwErDkbLB7DCoBJVdqo7u5by2_5T_FOWQANgrPQF72FbbWClRaovOda1dKjgUQY4ExomHz5VGApg_H3ozbJZx8po1C3kT4vpeM_BJ7upGpmEiIkmVD2VPwC91OHaXnm8XczYn8ijCQSkicJ2PVrarbFG4/s225/download%20(2).jfif" alt="Product Image 2">
     </div>
     <div class="slide">
-        <img src="https://blogger.googleusercontent.com/img/a/AVvXsEjQTfdF_3DTCQj9uzlQ0FOK2_4kRkkri48jcnaGiNNG_chkL7olASmgsEOKDucaWRwyRQ5ws_1CjkMmk5HwJGXBdVm8awktU_vuA0Dp10kb60crbRcwhlAa4kK36PO6_yRPpgr3GifVVVAPaioCE1XiHMxQjNAFDdUh18thuBTFaWlWC25--Gkukn8EJPk" alt="Product Image 3">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt7CSPCkZkXzu0PZGh7Cxttq9BiA2xcOX4jWL5ibapsiW9Typ2EvooiOnT0GRZnmEBWi37gIOu5dvYw0ixAtUAPTifzsHzAu0YoydL64KSzItnYIR2dzdjOwNm92nLIYKEFWxfHuZPUFSQUggr-DAV_FN19xhangAz7WluhUcxa3C5zqghTZNne8WGXdY/s318/download%20(1).jfif" alt="Product Image 3">
     </div>
 </div>
-<!-- 🔥 Image Slider End -->
 
 <div class="price-box">
 <p class="old-price">আগের মূল্য: ৳ ৩৫০০</p>
@@ -153,8 +163,8 @@ button{
 <div class="section order-box" id="order">
 <h3>অর্ডার ফর্ম</h3>
 
-<form action="https://formspree.io/f/https://formspree.io/f/mykddozr" method="POST">
-
+<!-- ✅ Formspree Email Form -->
+<form action="https://formspree.io/f/mykddozr" method="POST">
 <input type="text" name="name" placeholder="আপনার নাম লিখুন" required>
 <input type="tel" name="phone" placeholder="মোবাইল নম্বর" required>
 <input type="text" name="address" placeholder="সম্পূর্ণ ঠিকানা" required>
@@ -166,8 +176,11 @@ button{
 </select>
 
 <button type="submit">অর্ডার কনফার্ম করুন</button>
-
 </form>
+
+<div class="success-message" id="successMsg">
+ধন্যবাদ! আপনার অর্ডার সফলভাবে সাবমিট হয়েছে।
+</div>
 
 </div>
 
@@ -178,15 +191,21 @@ button{
 </div>
 
 <script>
-// 🔥 Auto Slider Script
+// Auto Image Slider
 let slides = document.querySelectorAll(".slide");
 let index = 0;
-
 setInterval(() => {
     slides[index].classList.remove("active");
     index = (index + 1) % slides.length;
     slides[index].classList.add("active");
-}, 3000); // 3 second auto slide
+}, 3000); // 3 seconds
+
+// Optional: show success message after submit
+document.querySelector("form").addEventListener("submit", function(){
+    setTimeout(function(){
+        document.getElementById("successMsg").style.display = "block";
+    }, 500);
+});
 </script>
 
 </body>
