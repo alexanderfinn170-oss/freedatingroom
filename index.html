@@ -6,162 +6,233 @@
 <title>প্রাকৃতিক ভেষজ শক্তি বৃদ্ধির সমাধান</title>
 
 <style>
-body{
+body {
     margin:0;
     font-family: Arial, Helvetica, sans-serif;
-    background:#f2f2f2;
+    background:#f8f8f8;
+    color:#222;
+    line-height:1.6;
 }
-.wrapper{
-    max-width:700px;
+.wrapper {
+    max-width:900px;
     margin:auto;
     background:white;
+    padding-bottom:50px;
 }
-.header{
+.header {
     background:#b30000;
     color:white;
     text-align:center;
-    padding:15px;
-    font-size:22px;
+    padding:40px 20px;
+}
+.header h1 {
+    font-size:36px;
     font-weight:bold;
+    margin:0;
 }
-.section{
-    padding:20px;
+.section {
+    padding:40px 20px;
 }
-.slider{
+.slider {
     position:relative;
     width:100%;
-    height:350px;
+    height:400px;
     overflow:hidden;
+    margin-bottom:30px;
 }
-.slide{
+.slide {
     position:absolute;
     width:100%;
     height:100%;
     opacity:0;
     transition:opacity 1s ease-in-out;
 }
-.slide img{
+.slide img {
     width:100%;
     height:100%;
     object-fit:cover;
+    border-radius:10px;
 }
-.active{
+.active {
     opacity:1;
 }
-.price-box{
+.price-box {
     background:#fff4f4;
     border:2px dashed #b30000;
-    padding:15px;
+    padding:25px;
     text-align:center;
-    margin:15px 0;
+    margin:20px 0;
+    border-radius:10px;
 }
-.old-price{
+.old-price {
     text-decoration:line-through;
     color:gray;
+    font-size:20px;
 }
-.new-price{
+.new-price {
     color:#b30000;
-    font-size:24px;
+    font-size:28px;
     font-weight:bold;
+    margin-top:10px;
 }
-.btn{
+.btn {
     display:block;
     width:100%;
     background:#e60000;
     color:white;
     text-align:center;
-    padding:15px;
-    font-size:18px;
+    padding:20px;
+    font-size:22px;
     text-decoration:none;
-    border-radius:5px;
-    margin-top:10px;
+    border-radius:10px;
+    margin-top:20px;
+    transition:0.3s;
 }
-.features li{
-    margin:8px 0;
+.btn:hover {
+    background:#ff3333;
+    transform:scale(1.05);
 }
-.order-box{
+.features li {
+    margin:12px 0;
+    font-size:18px;
+}
+.product-section {
+    margin-bottom:50px;
+}
+.product-section img {
+    width:100%;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+.product-section h3 {
+    font-size:24px;
+    margin-bottom:10px;
+}
+.product-section p {
+    font-size:16px;
+}
+.video-section iframe {
+    width:100%;
+    height:450px;
+    border:none;
+    border-radius:10px;
+    margin-bottom:40px;
+}
+.order-box {
     background:#fafafa;
-    padding:15px;
+    padding:40px 20px;
     border:1px solid #ddd;
+    border-radius:10px;
 }
-input, select{
+input, select, textarea {
     width:100%;
-    padding:10px;
-    margin:6px 0;
+    padding:15px;
+    margin:10px 0;
     border:1px solid #ccc;
-    border-radius:5px;
+    border-radius:8px;
+    font-size:16px;
 }
-button{
+button {
     width:100%;
-    padding:12px;
+    padding:18px;
     background:#28a745;
     color:white;
     border:none;
-    font-size:16px;
-    border-radius:5px;
+    font-size:20px;
+    border-radius:10px;
     cursor:pointer;
+    transition:0.3s;
 }
-.footer{
+button:hover {
+    background:#3ad66e;
+}
+.footer {
     background:#111;
     color:white;
     text-align:center;
-    padding:15px;
+    padding:25px;
     font-size:14px;
 }
-.success-message{
+.success-message {
     display:none;
     background:#d4edda;
     color:#155724;
-    padding:10px;
+    padding:15px;
     margin-top:10px;
     border-radius:5px;
+    font-size:16px;
 }
 </style>
 </head>
-
 <body>
 
 <div class="wrapper">
 
+<!-- Header / Hero -->
 <div class="header">
-১০০% প্রাকৃতিক ভেষজ শক্তি বৃদ্ধির সমাধান
+<h1>১০০% প্রাকৃতিক ভেষজ শক্তি বৃদ্ধির সমাধান</h1>
 </div>
 
-<div class="section">
-
-<!-- Image Slider -->
+<!-- Hero Slider -->
 <div class="slider">
-    <div class="slide active">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiW9r0i43iftL3qgAUVV02k9y5PYG6OLHCcvVJ2ERqpOZP1RfPqkWFmHcDFp2QoCtQRMikMh3kqjPZcribBxdFmUqdDX1VASInZlTRZ95_ST3xQIa-KpPcX76TRbDDX074hKJVCwI2s2756ThecqwRi5_sNir07x6jYA0lRJaQn9HjYIczhJdCAzglQyiw/s350/download.jfif" alt="Product Image 1">
-    </div>
-    <div class="slide">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCKGQ-_PqJ7DiBAEVvxt4cWozC0eEx3tyS6iCwErDkbLB7DCoBJVdqo7u5by2_5T_FOWQANgrPQF72FbbWClRaovOda1dKjgUQY4ExomHz5VGApg_H3ozbJZx8po1C3kT4vpeM_BJ7upGpmEiIkmVD2VPwC91OHaXnm8XczYn8ijCQSkicJ2PVrarbFG4/s225/download%20(2).jfif" alt="Product Image 2">
-    </div>
-    <div class="slide">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt7CSPCkZkXzu0PZGh7Cxttq9BiA2xcOX4jWL5ibapsiW9Typ2EvooiOnT0GRZnmEBWi37gIOu5dvYw0ixAtUAPTifzsHzAu0YoydL64KSzItnYIR2dzdjOwNm92nLIYKEFWxfHuZPUFSQUggr-DAV_FN19xhangAz7WluhUcxa3C5zqghTZNne8WGXdY/s318/download%20(1).jfif" alt="Product Image 3">
-    </div>
+    <!-- এখানে hero images বসাবেন -->
+    <div class="slide active"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiW9r0i43iftL3qgAUVV02k9y5PYG6OLHCcvVJ2ERqpOZP1RfPqkWFmHcDFp2QoCtQRMikMh3kqjPZcribBxdFmUqdDX1VASInZlTRZ95_ST3xQIa-KpPcX76TRbDDX074hKJVCwI2s2756ThecqwRi5_sNir07x6jYA0lRJaQn9HjYIczhJdCAzglQyiw/s350/download.jfif" alt="Hero Image 1"></div>
+    <div class="slide"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCKGQ-_PqJ7DiBAEVvxt4cWozC0eEx3tyS6iCwErDkbLB7DCoBJVdqo7u5by2_5T_FOWQANgrPQF72FbbWClRaovOda1dKjgUQY4ExomHz5VGApg_H3ozbJZx8po1C3kT4vpeM_BJ7upGpmEiIkmVD2VPwC91OHaXnm8XczYn8ijCQSkicJ2PVrarbFG4/s225/download%20(2).jfif" alt="Hero Image 2"></div>
+    <div class="slide"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt7CSPCkZkXzu0PZGh7Cxttq9BiA2xcOX4jWL5ibapsiW9Typ2EvooiOnT0GRZnmEBWi37gIOu5dvYw0ixAtUAPTifzsHzAu0YoydL64KSzItnYIR2dzdjOwNm92nLIYKEFWxfHuZPUFSQUggr-DAV_FN19xhangAz7WluhUcxa3C5zqghTZNne8WGXdY/s318/download%20(1).jfif" alt="Hero Image 3"></div>
 </div>
 
-<div class="price-box">
+<!-- Price Section -->
+<div class="section price-box">
 <p class="old-price">আগের মূল্য: ৳ ৩৫০০</p>
 <p class="new-price">অফার মূল্য: ৳ ১৯৯০</p>
 <p>🚚 সারা বাংলাদেশে ক্যাশ অন ডেলিভারি</p>
-</div>
-
 <a href="#order" class="btn">এখনই অর্ডার করুন</a>
-
-<h3>যে সমস্যাগুলোর সমাধান পাবেন:</h3>
-<ul class="features">
-<li>দুর্বলতা ও স্ট্যামিনা কমে যাওয়া</li>
-<li>দ্রুত বীর্যপাত</li>
-<li>ইরেকশন সমস্যা</li>
-<li>বিবাহিত জীবনে অসন্তুষ্টি</li>
-</ul>
-
 </div>
 
+<!-- Features Section -->
+<div class="section">
+<h2 style="font-size:30px; margin-bottom:20px;">আপনি যা পাবেন:</h2>
+<ul class="features">
+<li>পুরুষের শক্তি ও স্থায়িত্ব বৃদ্ধি</li>
+<li>দ্রুত বীর্যপাত নিয়ন্ত্রণ</li>
+<li>ইরেকশন সমস্যা দূরীকরণ</li>
+<li>গোপন ডেলিভারি + ক্যাশ অন ডেলিভারি</li>
+<li>100% প্রাকৃতিক ভেষজ উপাদান</li>
+</ul>
+</div>
+
+<!-- Product Images + Details -->
+<div class="section">
+<!-- Product 1 -->
+<div class="product-section">
+<img src="product1.jpg" alt="Product 1">
+<h3>স্ট্যামিনা বুস্টার</h3>
+<p>এই হারবাল প্রোডাক্ট আপনার শক্তি পুনরুদ্ধার করে এবং স্ট্যামিনা বৃদ্ধি করে।</p>
+</div>
+<!-- Product 2 -->
+<div class="product-section">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt7CSPCkZkXzu0PZGh7Cxttq9BiA2xcOX4jWL5ibapsiW9Typ2EvooiOnT0GRZnmEBWi37gIOu5dvYw0ixAtUAPTifzsHzAu0YoydL64KSzItnYIR2dzdjOwNm92nLIYKEFWxfHuZPUFSQUggr-DAV_FN19xhangAz7WluhUcxa3C5zqghTZNne8WGXdY/s318/download%20(1).jfif" alt="Product 2">
+<h3>শক্তি বৃদ্ধি কফি</h3>
+<p>বিশেষ ভেষজ উপাদান যুক্ত কফি যা আপনাকে দীর্ঘ সময় শক্তি এবং কার্যকারিতা প্রদান করে।</p>
+</div>
+<!-- Product 3 -->
+<div class="product-section">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt7CSPCkZkXzu0PZGh7Cxttq9BiA2xcOX4jWL5ibapsiW9Typ2EvooiOnT0GRZnmEBWi37gIOu5dvYw0ixAtUAPTifzsHzAu0YoydL64KSzItnYIR2dzdjOwNm92nLIYKEFWxfHuZPUFSQUggr-DAV_FN19xhangAz7WluhUcxa3C5zqghTZNne8WGXdY/s318/download%20(1).jfif" alt="Product 3">
+<h3>হরমোন ব্যালেন্স ক্যাপসুল</h3>
+<p>পুরুষদের হরমোন ব্যালেন্স রাখে এবং যৌন স্বাস্থ্য উন্নত করে।</p>
+</div>
+</div>
+
+<!-- Video Section -->
+<div class="section video-section">
+<h2 style="font-size:28px; margin-bottom:20px;">পণ্যের ভিডিও ডিটেইলস</h2>
+<!-- এখানে আপনার YouTube link বসাবেন -->
+<iframe src="https://youtu.be/iv7lcUkFVSc?si=DUIRhW7ds6JKXme1" allowfullscreen></iframe>
+</div>
+
+<!-- Order Form Last Section -->
 <div class="section order-box" id="order">
-<h3>অর্ডার ফর্ম</h3>
+<h2 style="font-size:28px; margin-bottom:20px;">অর্ডার ফর্ম</h2>
 
 <!-- ✅ Formspree Email Form -->
 <form action="https://formspree.io/f/mykddozr" method="POST">
@@ -181,7 +252,6 @@ button{
 <div class="success-message" id="successMsg">
 ধন্যবাদ! আপনার অর্ডার সফলভাবে সাবমিট হয়েছে।
 </div>
-
 </div>
 
 <div class="footer">
@@ -191,20 +261,20 @@ button{
 </div>
 
 <script>
-// Auto Image Slider
+// Hero Slider
 let slides = document.querySelectorAll(".slide");
 let index = 0;
 setInterval(() => {
-    slides[index].classList.remove("active");
-    index = (index + 1) % slides.length;
-    slides[index].classList.add("active");
-}, 3000); // 3 seconds
+slides[index].classList.remove("active");
+index = (index + 1) % slides.length;
+slides[index].classList.add("active");
+}, 4000);
 
-// Optional: show success message after submit
+// Form Submit Success Message
 document.querySelector("form").addEventListener("submit", function(){
-    setTimeout(function(){
-        document.getElementById("successMsg").style.display = "block";
-    }, 500);
+setTimeout(function(){
+document.getElementById("successMsg").style.display = "block";
+}, 500);
 });
 </script>
 
