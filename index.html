@@ -3,277 +3,246 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>প্রাকৃতিক ভেষজ শক্তি বৃদ্ধির সমাধান</title>
+<title>প্রিমিয়াম টি-শার্ট ল্যান্ডিং পেজ</title>
+
+<!-- FACEBOOK PIXEL -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f.fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'YOUR_PIXEL_ID_HERE');
+fbq('track', 'PageView');
+</script>
 
 <style>
-body {
-    margin:0;
-    font-family: Arial, Helvetica, sans-serif;
-    background:#f8f8f8;
-    color:#222;
-    line-height:1.6;
+html{scroll-behavior:smooth;}
+body{
+margin:0;
+font-family:Arial, Helvetica, sans-serif;
+background:linear-gradient(135deg,#1e293b,#0f172a);
+color:#fff;
 }
-.wrapper {
-    max-width:900px;
-    margin:auto;
-    background:white;
-    padding-bottom:50px;
+
+/* LOGO */
+.logo-container{
+text-align:center;
+padding:20px;
+background:#111827;
 }
-.header {
-    background:#b30000;
-    color:white;
-    text-align:center;
-    padding:40px 20px;
+.logo-container img{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
 }
-.header h1 {
-    font-size:36px;
-    font-weight:bold;
-    margin:0;
+.company-name{
+margin-top:15px;
+font-size:28px;
+font-weight:bold;
+background:linear-gradient(45deg,#f97316,#facc15,#f97316);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+letter-spacing:2px;
 }
-.section {
-    padding:40px 20px;
+
+/* HEADER */
+.header{
+text-align:center;
+padding:50px 20px;
+background:linear-gradient(135deg,#0f172a,#334155);
 }
-.slider {
-    position:relative;
-    width:100%;
-    height:400px;
-    overflow:hidden;
-    margin-bottom:30px;
+.header h1{color:#f97316;font-size:2.5em;}
+.header p{color:#e2e8f0;}
+
+/* ATTRACTIVE BUTTON */
+.button,
+.order-form button{
+background:#f97316;
+color:#000;
+padding:15px 30px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:bold;
+margin-top:20px;
+display:inline-block;
+text-decoration:none;
+transition:all 0.3s ease;
+animation:pulse 2s infinite;
 }
-.slide {
-    position:absolute;
-    width:100%;
-    height:100%;
-    opacity:0;
-    transition:opacity 1s ease-in-out;
+
+.button:hover,
+.order-form button:hover{
+transform:translateY(-6px) scale(1.05);
+box-shadow:0 15px 25px rgba(249,115,22,0.5);
+background:#fb923c;
 }
-.slide img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    border-radius:10px;
+
+@keyframes pulse{
+0%{box-shadow:0 0 0 0 rgba(249,115,22,0.7);}
+70%{box-shadow:0 0 0 15px rgba(249,115,22,0);}
+100%{box-shadow:0 0 0 0 rgba(249,115,22,0);}
 }
-.active {
-    opacity:1;
+
+/* SLIDER */
+.slider{
+width:100%;
+max-width:600px;
+margin:40px auto;
+overflow:hidden;
+border-radius:12px;
 }
-.price-box {
-    background:#fff4f4;
-    border:2px dashed #b30000;
-    padding:25px;
-    text-align:center;
-    margin:20px 0;
-    border-radius:10px;
+.slides{
+display:flex;
+width:300%;
+animation:slide 9s infinite;
 }
-.old-price {
-    text-decoration:line-through;
-    color:gray;
-    font-size:20px;
+.slides img{width:100%;}
+@keyframes slide{
+0%{margin-left:0;}
+33%{margin-left:-100%;}
+66%{margin-left:-200%;}
+100%{margin-left:0;}
 }
-.new-price {
-    color:#b30000;
-    font-size:28px;
-    font-weight:bold;
-    margin-top:10px;
+
+/* PRODUCT DETAILS */
+.product{
+text-align:center;
+padding:40px 20px;
+background:#1e293b;
 }
-.btn {
-    display:block;
-    width:100%;
-    background:#e60000;
-    color:white;
-    text-align:center;
-    padding:20px;
-    font-size:22px;
-    text-decoration:none;
-    border-radius:10px;
-    margin-top:20px;
-    transition:0.3s;
+.product h2{color:#f97316;}
+.product p{color:#e5e7eb;line-height:1.8;}
+
+/* EXTRA IMAGES ABOVE VIDEO */
+.gallery{
+text-align:center;
+padding:40px 20px;
+background:#0f172a;
 }
-.btn:hover {
-    background:#ff3333;
-    transform:scale(1.05);
+.gallery img{
+width:260px;
+max-width:90%;
+margin:10px;
+border-radius:10px;
 }
-.features li {
-    margin:12px 0;
-    font-size:18px;
+
+/* VIDEO */
+.video-section{
+padding:40px 20px;
+text-align:center;
+background:#1e293b;
 }
-.product-section {
-    margin-bottom:50px;
+.video-section h2{color:#f97316;margin-bottom:20px;}
+.video-section iframe{
+width:100%;
+max-width:560px;
+height:315px;
+border-radius:10px;
 }
-.product-section img {
-    width:100%;
-    border-radius:10px;
-    margin-bottom:15px;
+
+/* ORDER FORM */
+.order-form{
+background:#0f172a;
+padding:40px 20px;
+text-align:center;
 }
-.product-section h3 {
-    font-size:24px;
-    margin-bottom:10px;
+.order-form h2{color:#f97316;}
+.order-form input,
+.order-form textarea,
+.order-form select{
+width:80%;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+border:none;
 }
-.product-section p {
-    font-size:16px;
-}
-.video-section iframe {
-    width:100%;
-    height:450px;
-    border:none;
-    border-radius:10px;
-    margin-bottom:40px;
-}
-.order-box {
-    background:#fafafa;
-    padding:40px 20px;
-    border:1px solid #ddd;
-    border-radius:10px;
-}
-input, select, textarea {
-    width:100%;
-    padding:15px;
-    margin:10px 0;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:16px;
-}
-button {
-    width:100%;
-    padding:18px;
-    background:#28a745;
-    color:white;
-    border:none;
-    font-size:20px;
-    border-radius:10px;
-    cursor:pointer;
-    transition:0.3s;
-}
-button:hover {
-    background:#3ad66e;
-}
-.footer {
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:25px;
-    font-size:14px;
-}
-.success-message {
-    display:none;
-    background:#d4edda;
-    color:#155724;
-    padding:15px;
-    margin-top:10px;
-    border-radius:5px;
-    font-size:16px;
+
+/* FOOTER */
+.footer{
+background:#111827;
+text-align:center;
+padding:20px;
+color:#94a3b8;
 }
 </style>
 </head>
+
 <body>
 
-<div class="wrapper">
+<!-- LOGO -->
+<div class="logo-container">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizie5O7tgoVd2aJp2A4PpGeyKR57iapRSXklgbczV7TAp9XjP9kn_393MnS3QK0vwuDQKAdgp8wzVfguUDSbfvGz1Wazwnk0fjriknjmGQbWpnX_wHgRv6sedtpf6MVvO9XtxSNAxb_XS5TSAOqo42B3_gSEcQJr_50nJ0FKvORnyqpEyE28dAz97dVSI/s225/images%20(1).jfif">
+<div class="company-name">কোম্পানির নাম</div>
+</div>
 
-<!-- Header / Hero -->
+<!-- HEADER -->
 <div class="header">
-<h1>১০০% প্রাকৃতিক ভেষজ শক্তি বৃদ্ধির সমাধান</h1>
+<h1>প্রিমিয়াম ফ্যাশন টি-শার্ট</h1>
+<p>স্টাইলিশ ডিজাইন | ১০০% কটন | লিমিটেড স্টক</p>
+<a href="#order" class="button">এখনই অর্ডার করুন</a>
 </div>
 
-<!-- Hero Slider -->
+<!-- SLIDER -->
 <div class="slider">
-    <!-- এখানে hero images বসাবেন -->
-    <div class="slide active"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiW9r0i43iftL3qgAUVV02k9y5PYG6OLHCcvVJ2ERqpOZP1RfPqkWFmHcDFp2QoCtQRMikMh3kqjPZcribBxdFmUqdDX1VASInZlTRZ95_ST3xQIa-KpPcX76TRbDDX074hKJVCwI2s2756ThecqwRi5_sNir07x6jYA0lRJaQn9HjYIczhJdCAzglQyiw/s350/download.jfif" alt="Hero Image 1"></div>
-    <div class="slide"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCKGQ-_PqJ7DiBAEVvxt4cWozC0eEx3tyS6iCwErDkbLB7DCoBJVdqo7u5by2_5T_FOWQANgrPQF72FbbWClRaovOda1dKjgUQY4ExomHz5VGApg_H3ozbJZx8po1C3kT4vpeM_BJ7upGpmEiIkmVD2VPwC91OHaXnm8XczYn8ijCQSkicJ2PVrarbFG4/s225/download%20(2).jfif" alt="Hero Image 2"></div>
-    <div class="slide"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt7CSPCkZkXzu0PZGh7Cxttq9BiA2xcOX4jWL5ibapsiW9Typ2EvooiOnT0GRZnmEBWi37gIOu5dvYw0ixAtUAPTifzsHzAu0YoydL64KSzItnYIR2dzdjOwNm92nLIYKEFWxfHuZPUFSQUggr-DAV_FN19xhangAz7WluhUcxa3C5zqghTZNne8WGXdY/s318/download%20(1).jfif" alt="Hero Image 3"></div>
-</div>
-
-<!-- Price Section -->
-<div class="section price-box">
-<p class="old-price">আগের মূল্য: ৳ ৩৫০০</p>
-<p class="new-price">অফার মূল্য: ৳ ১৯৯০</p>
-<p>🚚 সারা বাংলাদেশে ক্যাশ অন ডেলিভারি</p>
-<a href="#order" class="btn">এখনই অর্ডার করুন</a>
-</div>
-
-<!-- Features Section -->
-<div class="section">
-<h2 style="font-size:30px; margin-bottom:20px;">আপনি যা পাবেন:</h2>
-<ul class="features">
-<li>পুরুষের শক্তি ও স্থায়িত্ব বৃদ্ধি</li>
-<li>দ্রুত বীর্যপাত নিয়ন্ত্রণ</li>
-<li>ইরেকশন সমস্যা দূরীকরণ</li>
-<li>গোপন ডেলিভারি + ক্যাশ অন ডেলিভারি</li>
-<li>100% প্রাকৃতিক ভেষজ উপাদান</li>
-</ul>
-</div>
-
-<!-- Product Images + Details -->
-<div class="section">
-<!-- Product 1 -->
-<div class="product-section">
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgCKGQ-_PqJ7DiBAEVvxt4cWozC0eEx3tyS6iCwErDkbLB7DCoBJVdqo7u5by2_5T_FOWQANgrPQF72FbbWClRaovOda1dKjgUQY4ExomHz5VGApg_H3ozbJZx8po1C3kT4vpeM_BJ7upGpmEiIkmVD2VPwC91OHaXnm8XczYn8ijCQSkicJ2PVrarbFG4/s225/download%20(2).jfif" alt="Product 1">
-<h3>স্ট্যামিনা বুস্টার</h3>
-<p>এই হারবাল প্রোডাক্ট আপনার শক্তি পুনরুদ্ধার করে এবং স্ট্যামিনা বৃদ্ধি করে।</p>
-</div>
-<!-- Product 2 -->
-<div class="product-section">
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt7CSPCkZkXzu0PZGh7Cxttq9BiA2xcOX4jWL5ibapsiW9Typ2EvooiOnT0GRZnmEBWi37gIOu5dvYw0ixAtUAPTifzsHzAu0YoydL64KSzItnYIR2dzdjOwNm92nLIYKEFWxfHuZPUFSQUggr-DAV_FN19xhangAz7WluhUcxa3C5zqghTZNne8WGXdY/s318/download%20(1).jfif" alt="Product 2">
-<h3>শক্তি বৃদ্ধি কফি</h3>
-<p>বিশেষ ভেষজ উপাদান যুক্ত কফি যা আপনাকে দীর্ঘ সময় শক্তি এবং কার্যকারিতা প্রদান করে।</p>
-</div>
-<!-- Product 3 -->
-<div class="product-section">
-<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjt7CSPCkZkXzu0PZGh7Cxttq9BiA2xcOX4jWL5ibapsiW9Typ2EvooiOnT0GRZnmEBWi37gIOu5dvYw0ixAtUAPTifzsHzAu0YoydL64KSzItnYIR2dzdjOwNm92nLIYKEFWxfHuZPUFSQUggr-DAV_FN19xhangAz7WluhUcxa3C5zqghTZNne8WGXdY/s318/download%20(1).jfif" alt="Product 3">
-<h3>হরমোন ব্যালেন্স ক্যাপসুল</h3>
-<p>পুরুষদের হরমোন ব্যালেন্স রাখে এবং যৌন স্বাস্থ্য উন্নত করে।</p>
+<div class="slides">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizie5O7tgoVd2aJp2A4PpGeyKR57iapRSXklgbczV7TAp9XjP9kn_393MnS3QK0vwuDQKAdgp8wzVfguUDSbfvGz1Wazwnk0fjriknjmGQbWpnX_wHgRv6sedtpf6MVvO9XtxSNAxb_XS5TSAOqo42B3_gSEcQJr_50nJ0FKvORnyqpEyE28dAz97dVSI/s225/images%20(1).jfif">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvue_7KqAgNNFxOzKGq3bDL4GHo-WvxwCKyBq9k4MDgP_7RJEGHlso9Nh5VP1ZMSD1TzLNbhw4_SqVAnv2LIWfPNxiylCvNmq6_Iar8VpAL_j7LhTd8u0E5uz_08tg_MRT8VTbXI9Rra_uPaVNf-twF6yDlo_6g3hqfF_Na-Q9FjEN8qXYl-eOgWQnTTY/s184/download.jfif">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvue_7KqAgNNFxOzKGq3bDL4GHo-WvxwCKyBq9k4MDgP_7RJEGHlso9Nh5VP1ZMSD1TzLNbhw4_SqVAnv2LIWfPNxiylCvNmq6_Iar8VpAL_j7LhTd8u0E5uz_08tg_MRT8VTbXI9Rra_uPaVNf-twF6yDlo_6g3hqfF_Na-Q9FjEN8qXYl-eOgWQnTTY/s184/download.jfif">
 </div>
 </div>
 
+<!-- PRODUCT DETAILS -->
+<div class="product">
+<h2>কেন আমাদের টি-শার্ট কিনবেন?</h2>
+<p>
+👕 ১০০% প্রিমিয়াম কটন ফেব্রিক<br>
+🎨 ট্রেন্ডি ও ইউনিক ডিজাইন<br>
+🌬 ঘাম শোষণকারী ও আরামদায়ক<br>
+📏 S, M, L, XL সব সাইজ উপলব্ধ<br>
+🚚 সারাদেশে হোম ডেলিভারি
+</p>
+</div>
 
+<!-- EXTRA IMAGES ABOVE VIDEO -->
+<div class="gallery">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjvue_7KqAgNNFxOzKGq3bDL4GHo-WvxwCKyBq9k4MDgP_7RJEGHlso9Nh5VP1ZMSD1TzLNbhw4_SqVAnv2LIWfPNxiylCvNmq6_Iar8VpAL_j7LhTd8u0E5uz_08tg_MRT8VTbXI9Rra_uPaVNf-twF6yDlo_6g3hqfF_Na-Q9FjEN8qXYl-eOgWQnTTY/s184/download.jfif">
+<img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizie5O7tgoVd2aJp2A4PpGeyKR57iapRSXklgbczV7TAp9XjP9kn_393MnS3QK0vwuDQKAdgp8wzVfguUDSbfvGz1Wazwnk0fjriknjmGQbWpnX_wHgRv6sedtpf6MVvO9XtxSNAxb_XS5TSAOqo42B3_gSEcQJr_50nJ0FKvORnyqpEyE28dAz97dVSI/s225/images%20(1).jfif">
+</div>
 
-<!-- Order Form Last Section -->
-<div class="section order-box" id="order">
-<h2 style="font-size:28px; margin-bottom:20px;">অর্ডার ফর্ম</h2>
+<!-- VIDEO -->
+<div class="video-section">
+<h2>টি-শার্ট ভিডিও রিভিউ</h2>
+<iframe src="https://www.youtube.com/embed/M8A70zBhjas" allowfullscreen></iframe>
+</div>
 
-<!-- ✅ Formspree Email Form -->
+<!-- ORDER FORM -->
+<div class="order-form" id="order">
+<h2>অর্ডার ফর্ম</h2>
 <form action="https://formspree.io/f/mykddozr" method="POST">
-<input type="text" name="name" placeholder="আপনার নাম লিখুন" required>
-<input type="tel" name="phone" placeholder="মোবাইল নম্বর" required>
-<input type="text" name="address" placeholder="সম্পূর্ণ ঠিকানা" required>
-
-<select name="package" required>
-<option value="">প্যাকেজ নির্বাচন করুন</option>
-<option>১ প্যাক - ৳১৯৯০</option>
-<option>২ প্যাক - ৳৩৮০০</option>
-</select>
-
+<input type="text" name="Customer Name" placeholder="আপনার নাম" required><br>
+<input type="tel" name="Customer Phone" placeholder="আপনার ফোন নম্বর" required><br>
+<select name="Size" required>
+<option value="">সাইজ নির্বাচন করুন</option>
+<option>S</option>
+<option>M</option>
+<option>L</option>
+<option>XL</option>
+</select><br>
+<textarea name="Delivery Address" placeholder="ডেলিভারি ঠিকানা" rows="4" required></textarea><br>
+<input type="hidden" name="Product" value="Premium T-Shirt">
 <button type="submit">অর্ডার কনফার্ম করুন</button>
 </form>
-
-<div class="success-message" id="successMsg">
-ধন্যবাদ! আপনার অর্ডার সফলভাবে সাবমিট হয়েছে।
-</div>
 </div>
 
 <div class="footer">
-© 2026 Herbal Solution | সর্বস্বত্ব সংরক্ষিত
+© 2026 কোম্পানির নাম | All Rights Reserved
 </div>
-
-</div>
-
-<script>
-// Hero Slider
-let slides = document.querySelectorAll(".slide");
-let index = 0;
-setInterval(() => {
-slides[index].classList.remove("active");
-index = (index + 1) % slides.length;
-slides[index].classList.add("active");
-}, 4000);
-
-// Form Submit Success Message
-document.querySelector("form").addEventListener("submit", function(){
-setTimeout(function(){
-document.getElementById("successMsg").style.display = "block";
-}, 500);
-});
-</script>
 
 </body>
 </html>
-
-
